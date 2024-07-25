@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    background-color: #758694;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    background-color: #405D72;
+    color: #FFF8F3;
+    margin: 0;
+}
