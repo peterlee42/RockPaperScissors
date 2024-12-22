@@ -20,7 +20,7 @@ function getHumanChoice() {
     return userChoice;
 }
 
-function playRound(humanChoice, computerChoice, humanScore, computerScore) {
+function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         return "TIE!";
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
@@ -46,13 +46,39 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     }
 }
 
-function playGame(rounds) {
-    for (let i = 0; i < rounds; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        console.log(`Human chose ${humanChoice} and Computer choice ${computerChoice}`)
-        console.log(playRound(humanChoice, computerChoice, humanScore, computerScore));
-    }
-}
+const buttons = document.querySelectorAll("button");
+const scoreSubtitle = document.querySelector(".scoreSubtitle");
+const humanScoreText = document.querySelector(".humanScore");
+const compScoreText = document.querySelector(".computerScore");
 
-playGame(5);
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let humanChoice = button.id;
+        let computerChoice = getComputerChoice();
+
+        scoreSubtitle.textContent = playRound(humanChoice, computerChoice)
+        humanScoreText.textContent = humanScore.toString();
+        compScoreText.textContent = computerScore.toString();
+
+        if (humanScore == 5) {
+            setTimeout(() => {
+                alert("HUMAN WINS!!!")
+                resetGame()
+            }, 50);
+        }
+        else if (computerScore == 5) {
+            setTimeout(() => {
+                alert("COMPUTER WINS!!!")
+                resetGame()
+            }, 50);
+        }
+    });
+});
+
+function resetGame() {
+    scoreSubtitle.textContent = "First to Score 5 Wins the Game";
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreText.textContent = humanScore.toString();
+    compScoreText.textContent = computerScore.toString();
+}

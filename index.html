@@ -9,8 +9,30 @@
 </head>
 
 <body>
-    <script src="./rpc.js"></script>
     <h1>ROCK PAPER SCISSORS</h1>
+
+    <div id="scoreContainer">
+        <h2 id="scoreTitle">Scoreboard</h2>
+        <h2 class="scoreSubtitle">First to Score 5 Wins the Game</h2>
+        <div class="scores">
+            <div class="scoreBlock">
+                <h3>Human</h3>
+                <h3 class="humanScore">0</h3>
+            </div>
+            <div class="scoreBlock">
+                <h3>Computer</h3>
+                <h3 class="computerScore">0</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+    </div>
+
+    <script src="./rpc.js"></script>
 </body>
 
 </html>
